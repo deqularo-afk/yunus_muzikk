@@ -13,7 +13,10 @@ jobs:
 
       - name: Extract Project Zip
         run: |
-          unzip -q "Music düzenli cem kod.zip" -d extracted_project
+          echo "Depodaki zip dosyaları aranıyor..."
+          ZIP_DOSYASI=$(ls *.zip | head -n 1)
+          echo "Bulunan zip: $ZIP_DOSYASI"
+          unzip -q "$ZIP_DOSYASI" -d extracted_project
           cd extracted_project/*
           shopt -s dotglob
           mv * ..
